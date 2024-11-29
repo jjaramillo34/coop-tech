@@ -59,8 +59,15 @@ export function Map() {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v12',
-      bounds: bounds,
-      padding: 50
+      center: [-73.9438, 40.7915], // Default center (Coop Tech main campus)
+      zoom: 11 // Default zoom level
+    })
+
+    // Fit bounds after map loads
+    map.current.on('load', () => {
+      map.current?.fitBounds(bounds, {
+        padding: { top: 50, bottom: 50, left: 50, right: 50 }
+      })
     })
 
     // Add markers and popups for each location

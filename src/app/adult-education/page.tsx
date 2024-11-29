@@ -1,5 +1,3 @@
-import { Map } from "@/components/ui/map"
-
 export default function AdultEducationPage() {
   return (
     <main className="flex-1">

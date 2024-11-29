@@ -47,7 +47,7 @@ export default function FAQPage() {
             <AccordionItem value="cdos-courses">
               <AccordionTrigger>Can Coop Tech courses be used towards the CDOS Credential?</AccordionTrigger>
               <AccordionContent>
-                Yes. Coop Tech courses are CTE certified. Students receive 3 elective CTE credits per semester that may be applied towards the CDOS credential. These credits are automatically reflected on a student's transcript upon successful completion of a course.
+                Yes. Coop Tech courses are CTE certified. Students receive 3 elective CTE credits per semester that may be applied towards the CDOS credential. These credits are automatically reflected on a student&apos;s transcript upon successful completion of a course.
               </AccordionContent>
             </AccordionItem>
 
@@ -117,7 +117,7 @@ export default function FAQPage() {
             <AccordionItem value="d75-transportation">
               <AccordionTrigger>Who provides transportation arrangements for D75 students?</AccordionTrigger>
               <AccordionContent>
-                Transportation arrangements must be put in place by the student's D75 School.
+                Transportation arrangements must be put in place by the student&apos;s D75 School.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -135,7 +135,7 @@ export default function FAQPage() {
             </AccordionItem>
 
             <AccordionItem value="iep-support">
-              <AccordionTrigger>Who provides additional supports and services for special education students as per a student's IEP?</AccordionTrigger>
+              <AccordionTrigger>Who provides additional supports and services for special education students as per a student&apos;s IEP?</AccordionTrigger>
               <AccordionContent>
                 <p>The D75 School is responsible for any IEP mandated supports and services (i.e. individual paraprofessional support, related services, assistive technology, etc.).</p>
                 <p className="mt-2">D75 Schools sending 4 or more students to Coop Tech are expected to provide programmatic paraprofessional support for the CTE classes.</p>
