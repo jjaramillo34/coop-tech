@@ -67,8 +67,8 @@ export function Footer() {
             <Link href="/" className="block mb-4">
               <div className="relative w-[150px] h-[50px]">
                 <Image
-                  src={images.logos.d79.src}
-                  alt={images.logos.d79.alt}
+                  src={images.logos.coop.src}
+                  alt={images.logos.coop.alt}
                   fill
                   className="object-contain"
                 />
@@ -107,10 +107,10 @@ export function Footer() {
             </p>
             <div className="flex items-center space-x-4">
               <Image
-                src={images.logos.doe.src}
-                alt={images.logos.doe.alt}
-                width={100}
-                height={40}
+                src={images.logos.d79.src}
+                alt={images.logos.d79.alt}
+                width={150}
+                height={100}
                 className="h-8 w-auto"
               />
             </div>

@@ -1,11 +1,11 @@
 export const images = {
   logo: {
-    main: "/images/Cooplogo.webp",
+    main: "/images/cooplogo.webp",
     width: 150,
-    height: 50,
+    height: 60,
   },
   hero: {
-    main: "/images/MainPic.webp",
+    main: "/images/main-image.webp",
     width: 1920,
     height: 1080,
   },
@@ -60,6 +60,12 @@ export const images = {
     },
   },
   logos: {
+    coop: {
+      src: "/images/cooplogo.webp",
+      width: 250,
+      height: 120,
+      alt: "Coop Tech logo",
+    },
     d79: {
       src: "/images/d79logo.webp",
       width: 200,
