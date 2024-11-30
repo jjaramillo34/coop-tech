@@ -1,4 +1,11 @@
-export const campusData = [
+export interface Location {
+  name: string;
+  address: string;
+  coordinates: [number, number];
+  programs: string[];
+}
+
+export const locations: Location[] = [
   {
     name: "Manhattan-96th Street",
     address: "321 E 96th, New York, NY",
@@ -17,7 +24,7 @@ export const campusData = [
       "Vision Technology",
       "Web Design",
       "Welding",
-      "Advertising Design",
+      "Advertising & Design",
       "Audio and Video Production",
       "Medical Billing and Coding",
       "Introduction to Construction Trades",
@@ -39,7 +46,7 @@ export const campusData = [
     address: "109 Rhine Avenue, Staten Island, NY",
     coordinates: [-74.0754, 40.6033],
     programs: [
-      "Advertising Design",
+      "Advertising & Design",
       "Introduction to Construction Trades",
       "Natural Hairstyling",
     ],
@@ -69,11 +76,11 @@ export const campusData = [
       "Automotive",
       "Barbering",
       "Culinary Arts",
-      "Advertising Design",
+      "Advertising & Design",
     ],
   },
 ];
 
 export const getLocationByName = (name: string) => {
-  return campusData.find((campus) => campus.name === name);
+  return locations.find((location) => location.name === name);
 };

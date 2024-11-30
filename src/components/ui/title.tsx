@@ -4,12 +4,13 @@ import { useRef, useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
 interface TitleProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   variant?: 'default' | 'section' | 'subsection';
   align?: 'left' | 'center' | 'right';
   underline?: boolean;
   id?: string;
+  text?: string;
 }
 
 export function Title({
@@ -19,6 +20,7 @@ export function Title({
   align = 'left',
   underline = true,
   id,
+  text,
 }: TitleProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -70,7 +72,7 @@ export function Title({
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         )}
       >
-        {children}
+        {children || text}
       </h2>
       {underline && (
         <div className="relative h-2 bg-primary-50 rounded-full overflow-hidden 

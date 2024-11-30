@@ -1,57 +1,61 @@
 "use client"
 
-import { Map } from "@/components/ui/map"
+import { Title } from '@/components/ui/title';
+import { Map } from '@/components/ui/map';
+import { locations } from '@/data/locations';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function ContactPage() {
   return (
-    <main className="flex-1">
-      <div className="container py-12">
-        {/* Title Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 gradient-text">Contact Us</h1>
-          <p className="text-xl text-muted-foreground mb-8">
-            For general inquiries, please feel free to contact us at{' '}
-            <a 
-              href="mailto:coopadmissions@schools.nyc.gov" 
-              className="text-primary hover:underline"
-            >
-              coopadmissions@schools.nyc.gov
-            </a>
-          </p>
-        </div>
+    <div className="container py-12">
+      <Title 
+        variant="section" 
+        align="center"
+        text="Contact Us"
+      />
 
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-8">
         {/* Contact Information */}
-        <div className="grid md:grid-cols-2 gap-12 mb-12">
-          <div className="space-y-6">
-            <div>
-              <h2 className="text-2xl font-semibold mb-4">Location</h2>
-              <address className="not-italic text-lg">
-                321 East 96th Street<br />
-                New York, NY 10128
-              </address>
-            </div>
-            
-            <div>
-              <h2 className="text-2xl font-semibold mb-4">Hours of Operation</h2>
-              <p className="text-lg">
-                Monday - Friday<br />
-                8:00 AM - 4:00 PM
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-2xl font-semibold mb-4">Public Transportation</h2>
-              <p className="text-lg">
-                Subway: Q line at 96th Street<br />
-                Bus: M96, M15
-              </p>
+        <div className="space-y-8">
+          <div>
+            <h3 className="text-2xl font-bold text-primary-900 mb-6">Get in Touch</h3>
+            <div className="space-y-4">
+              <a
+                href="tel:+1234567890"
+                className="flex items-center gap-4 p-4 rounded-lg bg-primary-50 hover:bg-primary-100 transition-colors"
+              >
+                <Phone className="w-6 h-6 text-primary-600" />
+                <div>
+                  <p className="font-medium text-primary-900">Call Us</p>
+                  <p className="text-primary-700">(123) 456-7890</p>
+                </div>
+              </a>
+              <a
+                href="mailto:info@cooptech.edu"
+                className="flex items-center gap-4 p-4 rounded-lg bg-primary-50 hover:bg-primary-100 transition-colors"
+              >
+                <Mail className="w-6 h-6 text-primary-600" />
+                <div>
+                  <p className="font-medium text-primary-900">Email Us</p>
+                  <p className="text-primary-700">info@cooptech.edu</p>
+                </div>
+              </a>
+              <div className="flex items-center gap-4 p-4 rounded-lg bg-primary-50">
+                <MapPin className="w-6 h-6 text-primary-600" />
+                <div>
+                  <p className="font-medium text-primary-900">Visit Us</p>
+                  <p className="text-primary-700">321 East 96th Street, New York, NY 10128</p>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Map */}
-          <Map />
+        {/* Map */}
+        <div className="h-[500px] rounded-xl overflow-hidden">
+          <Map locations={locations} />
         </div>
       </div>
-    </main>
-  )
+    </div>
+  );
 } 

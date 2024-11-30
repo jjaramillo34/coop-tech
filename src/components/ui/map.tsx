@@ -3,42 +3,13 @@
 import { useEffect, useRef, useState } from 'react'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import { type Location } from '@/data/locations'
 
-interface Location {
-  name: string
-  address: string
-  coordinates: [number, number] // [longitude, latitude]
-  programs?: string[]
+interface MapProps {
+  locations: Location[];
 }
 
-const locations: Location[] = [
-  {
-    name: "Coop Tech Main Campus",
-    address: "321 East 96th Street, New York, NY 10128",
-    coordinates: [-73.9438, 40.7915],
-    programs: ["Automotive", "Carpentry", "Cosmetology", "Electrical", "Plumbing"]
-  },
-  {
-    name: "Queens Hub",
-    address: "47-07 30th Place, Long Island City, NY 11101",
-    coordinates: [-73.9366, 40.7437],
-    programs: ["Computer Repair", "Graphic Design"]
-  },
-  {
-    name: "George Westinghouse Campus",
-    address: "105 Tech Place, Brooklyn, NY 11201",
-    coordinates: [-73.9867, 40.6957],
-    programs: ["HVAC/R", "Welding"]
-  },
-  {
-    name: "Food & Finance High School",
-    address: "525 West 50th Street, New York, NY 10019",
-    coordinates: [-73.9936, 40.7651],
-    programs: ["Culinary Arts"]
-  }
-]
-
-export function Map() {
+export function Map({ locations }: MapProps) {
   const mapContainer = useRef<HTMLDivElement>(null)
   const map = useRef<mapboxgl.Map | null>(null)
   const [activeLocation, setActiveLocation] = useState<Location | null>(null)
@@ -59,7 +30,7 @@ export function Map() {
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v12',
-      center: [-73.9438, 40.7915], // Default center (Coop Tech main campus)
+      center: [-73.9438, 40.7915], // Default center (Manhattan area)
       zoom: 11 // Default zoom level
     })
 
@@ -93,7 +64,8 @@ export function Map() {
             <div class="text-sm">
               <strong>Programs:</strong>
               <ul class="list-disc pl-4 mt-1">
-                ${location.programs.map(program => `<li>${program}</li>`).join('')}
+                ${location.programs.slice(0, 5).map(program => `<li>${program}</li>`).join('')}
+                ${location.programs.length > 5 ? `<li class="text-primary-600">+${location.programs.length - 5} more programs</li>` : ''}
               </ul>
             </div>
           ` : ''}
@@ -147,13 +119,13 @@ export function Map() {
         map.current.remove()
       }
     }
-  }, [])
+  }, [locations])
 
   return (
-    <div className="relative">
+    <div className="relative h-full">
       <div 
         ref={mapContainer} 
-        className="h-[400px] rounded-lg shadow-lg"
+        className="h-full w-full rounded-lg shadow-lg"
       />
       {activeLocation && (
         <div className="absolute bottom-4 left-4 right-4 bg-white p-4 rounded-lg shadow-lg text-sm">

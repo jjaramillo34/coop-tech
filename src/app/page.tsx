@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { GraduationCap, MapPin, Wrench, Users, Award, Briefcase, Clock } from 'lucide-react';
-import { getAllTrades } from '@/data/trades';
+import { trades } from '@/data/trades';
 import { images } from '@/config/images';
 import Announcement from '@/components/sections/Announcement';
 import Hero from '@/components/sections/Hero';
@@ -54,8 +54,6 @@ const reasons = [
 ];
 
 export default function Home() {
-  const trades = getAllTrades();
-
   useEffect(() => {
     console.log('Home component mounted');
   }, []);
